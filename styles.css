@@ -1,0 +1,22 @@
+html{
+  background-color: rgb(130, 84, 143);
+}
+body{
+  text-align: right;
+font-family:Arial, Helvetica, sans-serif;
+}
+h1 {
+  color: #ffb6c1;
+}
+p {
+  color: #fff8b6;
+  margin-bottom: 1.5em;
+}
+
+div{
+
+  margin-right: 10%;
+  margin-top: 30%;
+ 
+}
+
