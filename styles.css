@@ -1,16 +1,19 @@
 html{
-  background-color: rgb(130, 84, 143);
+  background-color: #3D3B8E;
 }
 body{
   text-align: right;
 font-family:Arial, Helvetica, sans-serif;
 }
 h1 {
-  color: #ffb6c1;
+  color: #F79F79;
 }
 p {
-  color: #fff8b6;
+  color: #F7D08A;
   margin-bottom: 1.5em;
+}
+a{
+  color: #E3F09B;
 }
 
 div{
