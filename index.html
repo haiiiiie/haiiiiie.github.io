@@ -1,112 +1,40 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title></title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- <link rel="santitze" href="static/css/sanitize.css"> -->
-    <link rel="stylesheet" href="static/css/styles.css" />
+    <title>haie.space</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <!--[if lt IE 7]>
-      <p class="browsehappy">
-        You are using an <strong>outdated</strong> browser. Please
-        <a href="#">upgrade your browser</a> to improve your experience.
-      </p>
-    <![endif]-->
-<div class="webring">    <iframe id="webring" width="500" height="50" sandbox="allow-top-navigation-by-user-activation" src="https://ring.helena.place/haie"></iframe></div>
     <header>
-      <div class="dropdown">
-        <button class="dropbtn" onclick="myFunction()">
-          navigation
-          <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content" id="myDropdown">
-          <a href="index.html">home</a>
-          <a href="sites/about.html">about me</a>
-          <a href="sites/work.html">references</a>
-          <a href="sites/contact.html">contact</a>
-
-        </div>
-      </div>
+      
+        <svg viewBox="0 0 1000 80" width="100%">
+          <image href="logo.svg" width="100%"/>
+        </svg>
+     
+     
     </header>
-
-    <div class="banner lobster">
-      <img class="small" src="static/img/Asset 2.png" alt="logo" />
-
-      <a class="lobstertxt headline whitebg top" href="#about"> get started </a>
-    </div>
-
-    <!--    about    -->
-    <section id="about">
-      <div class="content darkblue">
-        <img class="round" src="/static/img/sharky.jpg" />
-        <div>
-          <h2>
-            who?
-          </h2>
-          <p>
-            heyoo, i am haie, i do video editing and design work,<br />
-             mainly for museums, currently in training
-        
-          </p>
-         <!--<a class="whitebg btn black" href="/sites/about.html">continiue</a>--> 
-        </div>
-      </div>
+    <main><section>
+      <iframe sandbox="allow-top-navigation-by-user-activation" src="https://ring.helena.place/haie"></iframe>
+      
     </section>
-
-    <!--    references    -->
-
-    <div class="content blue">
-      <div><h2>
-        projects
-      </h2>
-        <p>
-          noone <br />
-          my work
-        </p>
-        <a class="whitebg btn black" href="/sites/work.html">continiue</a>
-      </div>
-      <img class="round" src="/static/img/baloon.png" />
-    </div>
-
-    <!--    contact    -->
-<section id="contact">
-    <div class="content green">
-      <img class="round" src="/static/img/mail.png" />
-      <div>
-        <p>just write me an email: <br>
-          h4ie at protonmail dot com</p>
-        <!--<a class="whitebg btn black" href="/sites/contact.html">continiue</a>  -->
-      </div>
-    </div>
-  </section>
-
-    <!--    footer    -->
-
-    <footer class="sand bold">
-      <a href="impressum.html" class="white">impressum</a>
-      <a href="copyright.html" class="white">copyright</a>
+    <section class="music">
+        <h2>ウッーウッーウマウマ(゜∀゜)</h2>
+        <audio id="music-player" controls>
+          <source src="Caramelldansen.mp3" type="audio/mpeg">
+        </audio>
+      </section>
+      <section class="generator">
+        <h2>joke</h2>
+        <button id="generate-button">Generate</button>
+        <p id="generated-text"></p>
+      </section>
+   
+    </main>
+    <footer>
+      <p>&copy; 2023 haie.space</p>
     </footer>
-
-    <div>
-      <button 
-        onclick="topFunction()"
-        ;=""
-        id="myBtn"
-        title="Go to top"
-        style="display: block"
-      >
-      ↑
-      </button>
-    </div>
-
-    <script src="static/js/script.js" async defer></script>
+    <script src="script.js"></script>
   </body>
 </html>
