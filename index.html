@@ -1,40 +1,1028 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>haie.space</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <header>
-      
-        <svg viewBox="0 0 1000 80" width="100%">
-          <image href="logo.svg" width="100%"/>
-        </svg>
-     
-     
-    </header>
-    <main><section>
-      <iframe sandbox="allow-top-navigation-by-user-activation" src="https://ring.helena.place/haie"></iframe>
-      
-    </section>
-    <section class="music">
-        <h2>ウッーウッーウマウマ(゜∀゜)</h2>
-        <audio id="music-player" controls>
-          <source src="Caramelldansen.mp3" type="audio/mpeg">
-        </audio>
-      </section>
-      <section class="generator">
-        <h2>joke</h2>
-        <button id="generate-button">Generate</button>
-        <p id="generated-text"></p>
-      </section>
-   
-    </main>
-    <footer>
-      <p>&copy; 2023 haie.space</p>
-    </footer>
-    <script src="script.js"></script>
-  </body>
-</html>
+    <style type="text/css">.turbo-progress-bar {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: #0076ff;
+  z-index: 9999;
+  transition:
+    width 300ms ease-out,
+    opacity 150ms 150ms ease-in;
+  transform: translate3d(0, 0, 0);
+}
+</style><style id="st_globalStyles">
+/* SCROLLBAR */
+
+[dark-scroll]::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+[dark-scroll]::-webkit-scrollbar-track-piece {
+  background-color: #2b2b2b;
+  border: 1px solid #1d1d1d;
+}
+
+[dark-scroll]::-webkit-scrollbar-thumb {
+  height: 10px;
+  background-color: #4d4d4d;
+}
+[dark-scroll]::-webkit-scrollbar-thumb:hover {
+  background-color: #5a5a5a;
+}
+
+/* LOAD PROGRESS */
+
+.turbolinks-progress-bar {
+  height: 3px;
+  background-color: #ff6250;
+}
+
+/* GROUPING */
+
+[data-id].ui-selecting {
+  box-shadow: inset 0 0 0 1px #4285f4 !important;
+}
+[data-id].ui-selected {
+  box-shadow: inset 0 0 0 1px #4285f4 !important;
+}
+
+/* CURSOR */
+
+body[mode='comments'] * {
+  cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik00LjkxNjQ4IDIzLjQxMDlDNS40OTE1MyAyMi45ODg3IDUuOTMxNzkgMjIuMzkzNSA2LjIzMjggMjEuNjQwN0M0Ljc5MDY5IDE5LjczODMgNCAxNy4zOTMzIDQgMTQuOTk3NUM0IDguOTM0MSA4LjkzMjgyIDQgMTUuMDAyMiA0QzIxLjA3MTcgNCAyNiA4LjkzOTE5IDI2IDE1LjAwMjVDMjYgMjEuMDY1OSAyMS4wNjcyIDI2IDE0Ljk5NzggMjZDMTIuOTg5NiAyNiAxMS4wMzUzIDI1LjQ1NTcgOS4zMjM2NyAyNC40MjMxQzguNDI5NjUgMjQuOTU3MiA3LjQxNDM0IDI1LjIyNjggNi4zMDAxOCAyNS4yMjY4QzUuOTU0MjYgMjUuMjI2OCA1LjU5OTM1IDI1LjIwMTQgNS4yNTM0MiAyNS4xNDU0QzQuOTAzIDI1LjA4OTUgNC42Mjg5NiAyNC44MDQ2IDQuNTUyNTggMjQuNDE4QzQuNDc2MjEgMjQuMDI2NCA0LjYxOTk3IDIzLjYyOTYgNC45MTY0OCAyMy40MTA5WiIgZmlsbD0iI0ZGNjI1MCIvPgo8L3N2Zz4K')
+      0 24,
+    auto !important;
+}
+
+body[mode='code'] [data-id]:not(.hidden) {
+  cursor: default;
+}
+
+/* default node state */
+
+body[mode='code'] [data-id]:not(.hidden), body[mode='comments'] [data-id]:not(.hidden) {
+  pointer-events: all;
+}
+
+/* is_image */
+
+body[mode='code'] [data-id].is_image [data-id], body[mode='comments'] [data-id].is_image [data-id] {
+  pointer-events: none !important;
+}
+
+/* without a data-id or ignored */
+
+[data-id].ignore,body[mode='code'] *:not([data-id]) {
+  pointer-events: none !important;
+}
+/* disable transforms for ignored elements */
+
+
+body[mode='code'] [data-id]:hover{
+  transform: none !important;
+}
+
+</style><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"><link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png"><meta name="og:type" content="website"><meta name="twitter:card" content="photo"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script><script src="https://animaapp.s3.amazonaws.com/launchpad-static/launchpad.js"></script><script id="anima-hotspots-script" src="hotspots.js"></script><style id="hotspots-styles">
+    .hotspot {
+      position: absolute;
+      border: 1px solid #2a9fd8;
+      background: rgba(0, 173, 255, 0.54);
+      opacity: 0;
+      z-index: -1;
+      pointer-events:none;
+    }
+  </style><script id="s_turbo" src="https://animaapp.s3.amazonaws.com/static/turbo.es2017-umd.js"></script><script id="anima-overrides-script" src="overrides.js"></script><script src="https://animaapp.s3.amazonaws.com/js/timeline.js"></script><style>
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+
+
+/* The following line is used to measure usage of this code. You can remove it if you want. */
+@import url("https://px.animaapp.com/654c06582bffed41bf3fdc0f.654c06592bffed41bf3fdc12.4T0ILBR.hch.png");
+
+
+.screen textarea:focus,
+.screen input:focus {
+  outline: none;
+}
+
+.screen * {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+.screen div {
+  -webkit-text-size-adjust: none;
+}
+
+.component-wrapper a {
+  display: contents;
+  pointer-events: auto;
+  text-decoration: none;
+}
+
+.component-wrapper * {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.component-wrapper a *,
+.component-wrapper input,
+.component-wrapper video,
+.component-wrapper iframe {
+  pointer-events: auto;
+}
+
+.component-wrapper.not-ready,
+.component-wrapper.not-ready * {
+  visibility: hidden !important;
+}
+
+.screen a {
+  display: contents;
+  text-decoration: none;
+}
+
+.full-width-a {
+  width: 100%;
+}
+
+.full-height-a {
+  height: 100%;
+}
+
+.container-center-vertical {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  pointer-events: none;
+}
+
+.container-center-vertical > * {
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+.container-center-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  pointer-events: none;
+  width: 100%;
+}
+
+.container-center-horizontal > * {
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+.auto-animated div {
+  --z-index: -1;
+  opacity: 0;
+  position: absolute;
+}
+
+.auto-animated input {
+  --z-index: -1;
+  opacity: 0;
+  position: absolute;
+}
+
+.auto-animated .container-center-vertical,
+.auto-animated .container-center-horizontal {
+  opacity: 1;
+}
+
+.overlay-base {
+  display: none;
+  height: 100%;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.overlay-base.animate-appear {
+  align-items: center;
+  animation: reveal 0.3s ease-in-out 1 normal forwards;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+}
+
+.overlay-base.animate-disappear {
+  animation: reveal 0.3s ease-in-out 1 reverse forwards;
+  display: block;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.overlay-base.animate-disappear * {
+  pointer-events: none;
+}
+
+@keyframes reveal {
+  from { opacity: 0 }
+ to { opacity: 1 }
+}
+
+.animate-nodelay {
+  animation-delay: 0s;
+}
+
+.align-self-flex-start {
+  align-self: flex-start;
+}
+
+.align-self-flex-end {
+  align-self: flex-end;
+}
+
+.align-self-flex-center {
+  align-self: flex-center;
+}
+
+.valign-text-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.valign-text-bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+input:focus {
+  outline: none;
+}
+
+.listeners-active,
+.listeners-active * {
+  pointer-events: auto;
+}
+
+.hidden,
+.hidden * {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.smart-layers-pointers,
+.smart-layers-pointers * {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.listeners-active-click,
+.listeners-active-click * {
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+}
+:root { 
+ 
+ 
+}
+:root {
+}
+
+
+/* screen - 2 */
+
+.x2 {
+  background-color: #ffffff;
+  margin: 0px;
+  min-height: 3728px;
+  min-width: 550px;
+  overflow: hidden;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.x2 .star-forming_region_-580WVZ {
+  background-color: transparent;
+  height: 10.84%;
+  left: 0px;
+  object-fit: cover;
+  position: absolute;
+  top: 48.31%;
+  width: 100%;
+}
+
+.x2 .x6788451-580WVZ {
+  background-color: transparent;
+  height: 5.93%;
+  object-fit: cover;
+  position: absolute;
+  right: 31px;
+  top: 3.86%;
+  width: 60.36%;
+}
+
+.x2 .x9774832-580WVZ {
+  background-color: transparent;
+  height: 9.84%;
+  left: 0px;
+  object-fit: cover;
+  position: absolute;
+  top: 365px;
+  width: 100%;
+}
+
+.x2 .x523-5235798_shark-cl-580WVZ {
+  background-color: transparent;
+  height: 3.25%;
+  left: 45.09%;
+  object-fit: cover;
+  position: absolute;
+  top: 1882px;
+  width: 40.71%;
+}
+
+.x2 .x523-5235798_shark-cl-hbXrJH {
+  background-color: transparent;
+  cursor: pointer;
+  height: 3.36%;
+  left: 44.96%;
+  object-fit: cover;
+  pointer-events: auto;
+  position: absolute;
+  top: 21.56%;
+  transition: all 0.2s ease;
+  width: 32.44%;
+}
+
+.x2 .x523-5235798_shark-cl-hbXrJH:hover {
+  transform: scale(1.1);
+}
+
+.x2 .rocket-png-file-download-free-3028912459-580WVZ {
+  background-color: transparent;
+  cursor: pointer;
+  height: 5.18%;
+  left: 0px;
+  object-fit: cover;
+  pointer-events: auto;
+  position: absolute;
+  top: 42.41%;
+  transition: all 0.2s ease;
+  width: 64.00%;
+}
+
+.x2 .rocket-png-file-download-free-3028912459-580WVZ:hover {
+  transform: translate(0, -5px);
+}
+
+.x2 .cooltext446576253856496-580WVZ {
+  background-color: transparent;
+  cursor: pointer;
+  height: 3.84%;
+  left: 0.87%;
+  object-fit: cover;
+  pointer-events: auto;
+  position: absolute;
+  top: 33px;
+  transition: all 0.2s ease;
+  width: 94.24%;
+}
+
+.x2 .cooltext446576253856496-580WVZ:hover {
+  box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.2);
+}
+
+.x2 .cooltext446576236164664-580WVZ {
+  bottom: 508px;
+  height: 0px;
+  left: 550px;
+  width: 0px;
+}
+
+.x2 .cooltext446576341606358-580WVZ {
+  background-color: transparent;
+  height: 2.47%;
+  left: 42px;
+  object-fit: cover;
+  position: absolute;
+  top: 926px;
+  width: 89.64%;
+}
+
+.x2 .sad-shark-funny-968627126-580WVZ {
+  background-color: transparent;
+  height: 6.11%;
+  left: 40.36%;
+  object-fit: cover;
+  position: absolute;
+  top: 61.05%;
+  width: 41.42%;
+}
+
+.x2 .cooltext446576689945234-580WVZ {
+  background-color: transparent;
+  height: 0.75%;
+  left: 22px;
+  object-fit: cover;
+  position: absolute;
+  top: 2476px;
+  width: 92.00%;
+}
+
+.x2 .x3703-580WVZ {
+  height: 7.91%;
+  left: 0px;
+  top: 31.63%;
+  width: 53.64%;
+}
+
+.x2 .x523-5235798_shark-cl-hExutz {
+  background-color: transparent;
+  height: 6.28%;
+  left: 47.99%;
+  object-fit: cover;
+  position: absolute;
+  top: 1082px;
+  width: 45.10%;
+}
+
+.x2 .shark_png18821-93367266-580WVZ {
+  background-color: transparent;
+  height: 5.45%;
+  left: 13.39%;
+  object-fit: cover;
+  position: absolute;
+  top: 395px;
+  width: 93.77%;
+}
+
+.x2 .x3703-hbXrJH {
+  height: 5.63%;
+  left: 327px;
+  top: 43.86%;
+  width: 38.18%;
+}
+
+.x2 .x198114-75958_media_image_-755349222-580WVZ {
+  background-color: transparent;
+  bottom: 815px;
+  height: 8.85%;
+  left: 9.64%;
+  object-fit: cover;
+  position: absolute;
+  width: 59.96%;
+}
+
+.x2 .cooltext446576860491728-580WVZ {
+  background-color: transparent;
+  height: 0.91%;
+  left: 45px;
+  object-fit: cover;
+  position: absolute;
+  top: 40.77%;
+  width: 91.45%;
+}
+
+.x2 .cooltext446576655852857-580WVZ {
+  background-color: transparent;
+  height: 1.28%;
+  left: 8.00%;
+  object-fit: cover;
+  position: absolute;
+  top: 2536px;
+  width: 87.52%;
+}
+
+.x2 .cooltext446576612638960-580WVZ {
+  background-color: transparent;
+  height: 0.72%;
+  left: 53px;
+  object-fit: cover;
+  position: absolute;
+  top: 2276px;
+  width: 80.73%;
+}
+
+.x2 .cooltext446576629172333-580WVZ {
+  background-color: transparent;
+  height: 0.67%;
+  left: 14px;
+  object-fit: cover;
+  position: absolute;
+  top: 2307px;
+  width: 96.36%;
+}
+
+.x2 .cool-text-79000-shar-580WVZ {
+  background-color: transparent;
+  height: 0.93%;
+  left: 1.91%;
+  object-fit: cover;
+  position: absolute;
+  top: 2924px;
+  width: 96.18%;
+}
+
+.x2 .cooltext446576236164664-hbXrJH {
+  bottom: 547px;
+  height: 3.41%;
+  left: 50px;
+  width: 81.82%;
+}
+
+.x2 .cooltext446576236164664 {
+  background-color: transparent;
+  cursor: pointer;
+  object-fit: cover;
+  position: absolute;
+}
+
+.x2 .x3703 {
+  background-color: transparent;
+  object-fit: cover;
+  position: absolute;
+}
+/* screen - web-1920-1 */
+
+.web-1920-1 {
+  background-color: #ffffff;
+  margin: 0px;
+  min-height: 4385px;
+  min-width: 1920px;
+  overflow: hidden;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.web-1920-1 .star-forming_region_-HlzXCz {
+  background-color: transparent;
+  height: 32.18%;
+  left: 0px;
+  object-fit: cover;
+  position: absolute;
+  top: 52.95%;
+  width: 100.05%;
+}
+
+.web-1920-1 .x6788451-HlzXCz {
+  background-color: transparent;
+  height: 6.07%;
+  object-fit: cover;
+  position: absolute;
+  right: 0px;
+  top: 2.94%;
+  width: 20.78%;
+}
+
+.web-1920-1 .x9774832-HlzXCz {
+  background-color: transparent;
+  height: 29.21%;
+  left: 0px;
+  object-fit: cover;
+  position: absolute;
+  top: 365px;
+  width: 100%;
+}
+
+.web-1920-1 .x523-5235798_shark-cl-HlzXCz {
+  background-color: transparent;
+  height: 3.69%;
+  left: 66.96%;
+  object-fit: cover;
+  position: absolute;
+  top: 1751px;
+  width: 15.60%;
+}
+
+.web-1920-1 .x523-5235798_shark-cl-YIwGnj {
+  background-color: transparent;
+  cursor: pointer;
+  display: block;
+  height: 5.09%;
+  left: 71.90%;
+  object-fit: cover;
+  opacity: 0;
+  pointer-events: auto;
+  position: absolute;
+  top: 22.93%;
+  transform: translate(0, 25px);
+  transition: all 0.2s ease;
+  width: 18.70%;
+}
+
+.web-1920-1 .x523-5235798_shark-cl-YIwGnj.bp2-animate-enter {
+  animation: bp2-animate-enter-frames 0.20s ease 0.00s 1 normal forwards;
+  display: block;
+  opacity: 0;
+  transform: translate(0, 25px);
+}
+
+@keyframes bp2-animate-enter-frames {
+  from{opacity: 0;
+transform: translate(0, 25px);
+}
+to{opacity: 1;
+transform: translate(0,0);
+}
+}
+
+.web-1920-1 .x523-5235798_shark-cl-YIwGnj:hover {
+  transform: scale(1.1);
+}
+
+.web-1920-1 .rocket-png-file-download-free-3028912459-HlzXCz {
+  background-color: transparent;
+  cursor: pointer;
+  height: 6.34%;
+  left: 353px;
+  object-fit: cover;
+  pointer-events: auto;
+  position: absolute;
+  top: 46.84%;
+  transition: all 0.2s ease;
+  width: 26.35%;
+}
+
+.web-1920-1 .rocket-png-file-download-free-3028912459-HlzXCz:hover {
+  transform: translate(0, -5px);
+}
+
+.web-1920-1 .cooltext446576253856496-HlzXCz {
+  background-color: transparent;
+  cursor: pointer;
+  height: 7.59%;
+  left: 16.62%;
+  object-fit: cover;
+  pointer-events: auto;
+  position: absolute;
+  top: 21px;
+  transition: all 0.2s ease;
+  width: 66.76%;
+}
+
+.web-1920-1 .cooltext446576253856496-HlzXCz:hover {
+  box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.2);
+}
+
+.web-1920-1 .cooltext446576236164664-HlzXCz {
+  background-color: transparent;
+  bottom: 31px;
+  cursor: pointer;
+  height: 4.40%;
+  left: 571px;
+  object-fit: cover;
+  position: absolute;
+  width: 35.68%;
+}
+
+.web-1920-1 .cooltext446576341606358-HlzXCz {
+  background-color: transparent;
+  height: 4.68%;
+  left: 50px;
+  object-fit: cover;
+  position: absolute;
+  top: 800px;
+  width: 71.35%;
+}
+
+.web-1920-1 .cooltext446576612638960-HlzXCz {
+  background-color: transparent;
+  height: 1.55%;
+  left: 96px;
+  object-fit: cover;
+  position: absolute;
+  top: 2439px;
+  width: 58.49%;
+}
+
+.web-1920-1 .cooltext446576629172333-HlzXCz {
+  background-color: transparent;
+  height: 1.51%;
+  left: 96px;
+  object-fit: cover;
+  position: absolute;
+  top: 2526px;
+  width: 72.60%;
+}
+
+.web-1920-1 .sad-shark-funny-968627126-HlzXCz {
+  background-color: transparent;
+  height: 4.22%;
+  left: 72.15%;
+  object-fit: cover;
+  position: absolute;
+  top: 72.06%;
+  width: 9.64%;
+}
+
+.web-1920-1 .cooltext446576689945234-HlzXCz {
+  background-color: transparent;
+  height: 1.78%;
+  left: 96px;
+  object-fit: cover;
+  position: absolute;
+  top: 3345px;
+  width: 74.53%;
+}
+
+.web-1920-1 .x3703-HlzXCz {
+  left: 96px;
+  top: 37.54%;
+}
+
+.web-1920-1 .x523-5235798_shark-cl-2G68wd {
+  background-color: transparent;
+  height: 6.94%;
+  left: 28.74%;
+  object-fit: cover;
+  position: absolute;
+  top: 1304px;
+  width: 17.20%;
+}
+
+.web-1920-1 .shark_png18821-93367266-HlzXCz {
+  background-color: transparent;
+  height: 6.16%;
+  left: 13.39%;
+  object-fit: cover;
+  position: absolute;
+  top: 493px;
+  width: 37.31%;
+}
+
+.web-1920-1 .x3703-YIwGnj {
+  left: 143px;
+  top: 61.07%;
+}
+
+.web-1920-1 .x198114-75958_media_image_-755349222-HlzXCz {
+  background-color: transparent;
+  bottom: 354px;
+  height: 6.27%;
+  left: 55.28%;
+  object-fit: cover;
+  position: absolute;
+  width: 14.32%;
+}
+
+.web-1920-1 .cooltext446576860491728-HlzXCz {
+  background-color: transparent;
+  height: 2.19%;
+  left: 318px;
+  object-fit: cover;
+  position: absolute;
+  top: 44.70%;
+  width: 74.27%;
+}
+
+.web-1920-1 .cooltext446576655852857-HlzXCz {
+  background-color: transparent;
+  height: 2.26%;
+  left: 26.31%;
+  object-fit: cover;
+  position: absolute;
+  top: 2982px;
+  width: 66.60%;
+}
+
+.web-1920-1 .cool-text-79000-shar-HlzXCz {
+  background-color: transparent;
+  height: 2.16%;
+  left: 5.67%;
+  object-fit: cover;
+  position: absolute;
+  top: 4005px;
+  width: 75.81%;
+}
+
+.web-1920-1 .x3703 {
+  background-color: transparent;
+  height: 7.98%;
+  object-fit: cover;
+  position: absolute;
+  width: 18.23%;
+}
+@media screen and (max-width: 1919px) {
+  .screen.web-1920-1 { 
+    display: none;
+   }
+}
+@media screen and (min-width: 1920px) {
+  .screen.x2 { 
+    display: none;
+   }
+}
+</style><script id="anime-js-script" src="https://cdn.jsdelivr.net/npm/animejs@3.1.0/lib/anime.min.js" integrity="sha256-98Q574VkbV+PkxXCKSgL6jVq9mrVbS7uCdA+vt0sLS8=" crossorigin="anonymous"></script><script id="imgloaded-js-script" src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script><style id="overrides-styles">
+.box-highlight {
+  position: absolute;
+  box-shadow:inset 0 0 0 1px #4285f4;
+  background: rgba(66, 133, 244, 0.1);
+  pointer-events: none;
+  box-sizing: border-box;
+  width:0;
+  height:0;
+  top:0;
+  left:0;
+  transform:translate3d(0,0,0);
+}
+
+.box-wrapper {
+  width:100%;
+  height:100%;
+  position:relative
+}
+.tag-box {
+  position: absolute;
+  left: var(--tag-box-left);
+  top: var(--tag-box-top);
+  width: var(--tag-box-width);
+  height: 20px;
+  // max-width: var(--width);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.tag-name {
+  padding: 0 8px;
+  height: 100%;
+  background: #4285f4;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-family: sans-serif;
+  flex-shrink: 0;
+}
+.tag-component-name {
+  padding: 0 8px;
+  height: 100%;
+  background: rgba(51, 102, 255, 0.2);
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  color: #4285f4;
+  visibility: hidden;
+  font-family: sans-serif;
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+}
+
+.tag-component-name span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display:inline-block;
+  height: 100%;
+  position: relative;
+  top: 3px;
+}
+
+.box-highlight.hover {
+  z-index:10;
+}
+.box-highlight.fixed {
+  z-index:9;
+}
+
+
+.box-highlight.is_component {
+  position: absolute;
+  box-shadow: inset 0 0 0 1px #ff6250;
+  background: rgba(255, 98, 80,0.1);
+}
+.box-highlight.is_root_screen {
+  background: transparent;
+  box-shadow: inset 0px 0 0 3px #4285f4;
+}
+.box-highlight.is_component.is_root_screen {
+  box-shadow: inset 0px 0 0 3px #ff6250;
+}
+
+.box-highlight.is_root_screen .tag-box {
+  background: transparent;
+  top:3px;
+  left:0;
+}
+
+
+
+.is_component .tag-component-name{
+  color: #E2412E;
+  background: #F2BFAF;
+}
+.is_component .tag-name{
+  background: #ff6250;
+  color:#fff;
+}
+
+</style></head><body style="margin: 0px; background: rgb(255, 255, 255); overflow-x: hidden;" dark-scroll=""><input type="hidden" id="anPageName" name="page" value="web-1920-1"><div class="web-1920-1 screen" data-id="24f88dfa-6975-4f72-91c1-e0c7afde84a3"><img class="star-forming_region_-HlzXCz" data-id="3083c367-2cbc-4b5d-9d36-d473eb69f56a" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/star-forming-region-s106--captured-by-the-hubble-space-telescope@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/star-forming-region-s106--captured-by-the-hubble-space-telescope@1x.png" alt="Star-forming_region_S106_(captured_by_the_Hubble_Space_Telescope)-816545490"><img class="x6788451-HlzXCz" data-id="5edbb43b-e789-4053-b715-858cfb9e2704" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/6788451@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/6788451@1x.png" alt="6788451"><img class="x9774832-HlzXCz" data-id="36298ab3-3f0f-4917-be42-9a5319496bc4" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/9774832@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/9774832@1x.png" alt="9774832"><img class="x523-5235798_shark-cl-HlzXCz" data-id="3e4c1d97-bdc0-427a-a49c-12c9ef0cbdf4" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/523-5235798-shark-clipart-clip-art-shark-png-download-1284226243@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/523-5235798-shark-clipart-clip-art-shark-png-download-1284226243@1x.png" alt="523-5235798_shark-clipart-clip-art-shark-png-download-1284226243"><img class="x523-5235798_shark-cl-YIwGnj smart-layers-pointers bp2-animate-enter" data-id="eecb5f36-db60-47a3-991f-990f1546d7a1" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/523-5235798-shark-clipart-clip-art-shark-png-download-1284226243-1@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/523-5235798-shark-clipart-clip-art-shark-png-download-1284226243-1@1x.png" alt="523-5235798_shark-clipart-clip-art-shark-png-download-1284226243"><img class="rocket-png-file-download-free-3028912459-HlzXCz smart-layers-pointers" data-id="c5a7846e-5d54-4908-99cc-8ff848a712c9" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/rocket-png-file-download-free-3028912459@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/rocket-png-file-download-free-3028912459@1x.png" alt="Rocket-PNG-File-Download-Free-3028912459"><img class="cooltext446576253856496-HlzXCz smart-layers-pointers" data-id="b0d5169e-0e8a-4146-b6d0-9f15c6beb0a1" id="cooltext446576253856496" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576253856496@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576253856496@1x.png" alt="cooltext446576253856496"><a href="#cooltext446576253856496"><img class="cooltext446576236164664-HlzXCz" data-id="8f8cee93-ce86-487c-8a2c-e8400375c6f5" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576236164664@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576236164664@1x.png" alt="cooltext446576236164664"></a><img class="cooltext446576341606358-HlzXCz" data-id="a90638ee-75eb-469d-aa92-b3059dc0261a" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576341606358@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576341606358@1x.png" alt="cooltext446576341606358"><img class="cooltext446576612638960-HlzXCz" data-id="e2dc1f42-5c2b-48b8-875a-366797452f90" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576612638960@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576612638960@1x.png" alt="cooltext446576612638960"><img class="cooltext446576629172333-HlzXCz" data-id="8876ad37-9978-4eef-b8a2-0242240d731b" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576629172333@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576629172333@1x.png" alt="cooltext446576629172333"><img class="sad-shark-funny-968627126-HlzXCz" data-id="70bff5a7-1529-468f-b8fe-6d75bf477d45" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/sad-shark-funny-968627126@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/sad-shark-funny-968627126@1x.png" alt="sad-shark-funny-968627126"><img class="cooltext446576689945234-HlzXCz" data-id="9bc37c29-2569-48d4-b6dc-4965ec2595c5" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576689945234@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576689945234@1x.png" alt="cooltext446576689945234"><img class="x3703-HlzXCz x3703" data-id="eb250910-ee9b-4718-a767-c25fb8b4290b" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/3703-1@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/3703-1@1x.png" alt="3703"><img class="x523-5235798_shark-cl-2G68wd" data-id="537e297a-497c-48cc-9a20-939a8eff448b" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/523-5235798-shark-clipart-clip-art-shark-png-download-1284226243-2@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/523-5235798-shark-clipart-clip-art-shark-png-download-1284226243-2@1x.png" alt="523-5235798_shark-clipart-clip-art-shark-png-download-1284226243"><img class="shark_png18821-93367266-HlzXCz" data-id="6fcee765-bda6-4af8-8df6-0bc1ed70250c" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/shark-png18821-93367266@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/shark-png18821-93367266@1x.png" alt="shark_PNG18821-93367266"><img class="x3703-YIwGnj x3703" data-id="0619c894-ee3a-4c17-a1f7-9e3bc20c2f2c" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/3703-1@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/3703-1@1x.png" alt="3703"><img class="x198114-75958_media_image_-755349222-HlzXCz" data-id="3369e6c0-76d5-42bc-8002-02f4d5df7a3d" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/198114-75958-media-image--755349222@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/198114-75958-media-image--755349222@1x.png" alt="198114-75958_MEDIA_IMAGE_-755349222"><img class="cooltext446576860491728-HlzXCz" data-id="1e332396-74b1-4930-9255-35f3d05788fb" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576860491728@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576860491728@1x.png" alt="cooltext446576860491728"><img class="cooltext446576655852857-HlzXCz" data-id="4e688473-146e-4bab-abaa-6689cafa808c" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576655852857@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576655852857@1x.png" alt="cooltext446576655852857"><img class="cool-text-79000-shar-HlzXCz" data-id="177c1e63-c2fa-4da9-9b1b-cfece01b9817" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cool-text---79000-sharks-have-no-access-to-drinking-water-446576@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cool-text---79000-sharks-have-no-access-to-drinking-water-446576@1x.png" alt="Cool Text - 79000 sharks have no access to drinking water 446576966521164"></div><div class="x2 screen" data-id="3fad4fa8-7fb4-4825-91d0-a0fd230a21ac"><img class="star-forming_region_-580WVZ" data-id="2316267c-0c8e-4a74-8553-e18aaca10f7a" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/star-forming-region-s106--captured-by-the-hubble-space-telescope-1@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/star-forming-region-s106--captured-by-the-hubble-space-telescope-1@1x.png" alt="Star-forming_region_S106_(captured_by_the_Hubble_Space_Telescope)-816545490"><img class="x6788451-580WVZ" data-id="7d7629b2-df2d-471a-9fea-fbb8fe928fac" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/6788451-1@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/6788451-1@1x.png" alt="6788451"><img class="x9774832-580WVZ" data-id="d0576b40-3a14-4122-be2d-6d454ca30754" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/9774832-1@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/9774832-1@1x.png" alt="9774832"><img class="x523-5235798_shark-cl-580WVZ" data-id="79874ded-9d08-4f1b-8567-4a2b5c3841a8" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/523-5235798-shark-clipart-clip-art-shark-png-download-1284226243-3@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/523-5235798-shark-clipart-clip-art-shark-png-download-1284226243-3@1x.png" alt="523-5235798_shark-clipart-clip-art-shark-png-download-1284226243"><img class="x523-5235798_shark-cl-hbXrJH smart-layers-pointers" data-id="86d77a13-e41b-4cc0-9457-5ba7403f7cc3" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/523-5235798-shark-clipart-clip-art-shark-png-download-1284226243-4@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/523-5235798-shark-clipart-clip-art-shark-png-download-1284226243-4@1x.png" alt="523-5235798_shark-clipart-clip-art-shark-png-download-1284226243"><img class="rocket-png-file-download-free-3028912459-580WVZ smart-layers-pointers" data-id="ae04e0c3-dc51-4c39-b26e-a0f725b8f64e" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/rocket-png-file-download-free-3028912459-1@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/rocket-png-file-download-free-3028912459-1@1x.png" alt="Rocket-PNG-File-Download-Free-3028912459"><img class="cooltext446576253856496-580WVZ smart-layers-pointers" data-id="e4dd50ea-b779-4664-8b1e-c6290fd386b6" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576253856496-1@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576253856496-1@1x.png" alt="cooltext446576253856496"><img class="cooltext446576236164664-580WVZ cooltext446576236164664" data-id="4aa1e056-2c1f-44cb-86f1-72f749f14146" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576236164664-1@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576236164664-1@1x.png" alt="cooltext446576236164664"><img class="cooltext446576341606358-580WVZ" data-id="5ef71914-6409-4b98-bd45-5a89b6a6b505" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576341606358-1@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576341606358-1@1x.png" alt="cooltext446576341606358"><img class="sad-shark-funny-968627126-580WVZ" data-id="f6a1460c-080b-45c5-b769-98e8a45933cc" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/sad-shark-funny-968627126-1@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/sad-shark-funny-968627126-1@1x.png" alt="sad-shark-funny-968627126"><img class="cooltext446576689945234-580WVZ" data-id="7c5dfd13-e4d1-44e0-b7de-b6074503b81a" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576689945234-1@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576689945234-1@1x.png" alt="cooltext446576689945234"><img class="x3703-580WVZ x3703" data-id="25181aef-8b95-4118-aa5f-4d9f6af5e51d" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/3703-2@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/3703-2@1x.png" alt="3703"><img class="x523-5235798_shark-cl-hExutz" data-id="06519d93-20c1-4026-a803-c74d15a77aa1" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/523-5235798-shark-clipart-clip-art-shark-png-download-1284226243-5@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/523-5235798-shark-clipart-clip-art-shark-png-download-1284226243-5@1x.png" alt="523-5235798_shark-clipart-clip-art-shark-png-download-1284226243"><img class="shark_png18821-93367266-580WVZ" data-id="ceddb250-04b6-4a22-a94b-2becbd36b9db" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/shark-png18821-93367266-1@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/shark-png18821-93367266-1@1x.png" alt="shark_PNG18821-93367266"><img class="x3703-hbXrJH x3703" data-id="0889715e-4d4a-4075-a267-2c7fec0f75ae" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/3703-3@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/3703-3@1x.png" alt="3703"><img class="x198114-75958_media_image_-755349222-580WVZ" data-id="56f06dcd-3fb8-49da-90bd-f1547beabd1c" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/198114-75958-media-image--755349222-1@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/198114-75958-media-image--755349222-1@1x.png" alt="198114-75958_MEDIA_IMAGE_-755349222"><img class="cooltext446576860491728-580WVZ" data-id="909449ea-0033-4848-9ca4-da9642fe300c" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576860491728-1@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576860491728-1@1x.png" alt="cooltext446576860491728"><img class="cooltext446576655852857-580WVZ" data-id="b8306f3f-c8ac-489e-8949-b94199b31eed" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576655852857-1@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576655852857-1@1x.png" alt="cooltext446576655852857"><img class="cooltext446576612638960-580WVZ" data-id="2551ad81-b0a8-46e3-b728-8077b0d9a288" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576612638960-1@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576612638960-1@1x.png" alt="cooltext446576612638960"><img class="cooltext446576629172333-580WVZ" data-id="397a0290-3545-4961-8344-947fa476711b" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576629172333-1@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576629172333-1@1x.png" alt="cooltext446576629172333"><img class="cool-text-79000-shar-580WVZ" data-id="f1bb30b2-197f-4547-b95e-028f61499030" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cool-text---79000-sharks-have-no-access-to-drinking-water-446576-1@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cool-text---79000-sharks-have-no-access-to-drinking-water-446576-1@1x.png" alt="Cool Text - 79000 sharks have no access to drinking water 446576966521164"><img class="cooltext446576236164664-hbXrJH cooltext446576236164664" data-id="48d1ee19-601c-4a57-9823-f6f55d5b7a14" src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576236164664-2@1x.png" anima-src="https://cdn.animaapp.com/projects/654c07db9f6d1701ab1ffd4c/releases/654c07e637c3baf19c3c0666/img/cooltext446576236164664-2@1x.png" alt="cooltext446576236164664"></div><script src="launchpad-js/launchpad-banner.js" async=""></script><script defer="" src="https://animaapp.s3.amazonaws.com/static/restart-btn.min.js"></script><script>function ShowOnScroll() {
+    this.toShow = [];
+    this.nextEventY = undefined;
+}
+
+ShowOnScroll.prototype.show = function(e) {
+    e.style.display = "";
+};
+
+ShowOnScroll.prototype.hide = function(e) {
+    e.style.display = "none";
+};
+
+ShowOnScroll.prototype.getTop = function(e) {
+    if (e.Top != undefined && e.Top != 0) {
+        return e.Top;
+    }
+    var top = 0;
+    var iter = e;
+    do {
+        top += iter.offsetTop || 0;
+        iter = iter.offsetParent;
+    } while (iter);
+    e.Top = top;
+    return top;
+};
+
+ShowOnScroll.prototype.onScroll = function() {
+    var screenBottom = window.pageYOffset + window.innerHeight;
+    if (this.nextEventY == undefined || this.nextEventY > screenBottom) {
+        return;
+    }
+    this.nextEventY = undefined;
+    for (var i = 0; i < this.toShow.length; i++) {
+        var e = this.toShow[i];
+        var top = this.getTop(e);
+        if (top < screenBottom) {
+            this.show(e);
+            this.toShow.shift();
+            i--;
+        } else {
+            this.nextEventY = top;
+            break;
+        }
+    }
+};
+
+ShowOnScroll.prototype.resetScrolling = function() {
+    // Clear state
+    var screenBottom = window.pageYOffset + window.innerHeight;
+    for (var i = 0; i < this.toShow.length; i++) {
+        var e = this.toShow[i];
+        this.show(e);
+    }
+    this.toShow = [];
+    this.nextEventY == undefined;
+
+    // Collect items
+    var itemsToShowOnScroll = Array.prototype.slice.call(document.getElementsByTagName("*"));
+    itemsToShowOnScroll = itemsToShowOnScroll.filter(function(e) { return e.getAttribute("show-on-scroll") != undefined });
+    var getTop = this.getTop;
+    itemsToShowOnScroll.sort(function(a, b) {
+        return getTop(a) - getTop(b);
+    });
+    for (var i = 0; i < itemsToShowOnScroll.length; i++) {
+        var e = itemsToShowOnScroll[i];
+        var top = this.getTop(e);
+        if (top < screenBottom) {
+            continue;
+        }
+        this.toShow.push(e);
+        this.hide(e);
+        this.nextEventY = this.nextEventY != undefined ? this.nextEventY : top;
+    }
+};
+
+ShowOnScroll.prototype.handleEvent = function(e) {
+    switch (e.type) {
+        case "scroll":
+            this.onScroll();
+            break;
+        case "resize":
+            this.resetScrolling();
+            break;
+    }
+};
+
+ShowOnScroll.prototype.init = function() {
+    this.resetScrolling();
+    window.addEventListener("scroll", this);
+    window.addEventListener("resize", this);
+};
+
+// After anima-src
+setTimeout(function() {
+    var instShowOnScroll = new ShowOnScroll();
+    instShowOnScroll.init();
+}, 250);</script><div id="hotspots_wrapper"></div><div id="t_preload_links"><link href="/2" rel="prefetch"><link href="/web-1920-1" rel="prefetch"></div></body></html>
